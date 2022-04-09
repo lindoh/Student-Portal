@@ -81,6 +81,11 @@ namespace Student_Portal
             clearTextboxes();
         }
 
+        /// <summary>
+        /// Clears all textboxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             //Clear textboxes
@@ -96,14 +101,15 @@ namespace Student_Portal
         #endregion
 
         #region Supporting Methods
+
+        /// <summary>
+        /// Clears all textboxes
+        /// </summary>
         private void clearTextboxes()
         {
             UsernameTxt.Text  = string.Empty;
             PasswordTxt.Password = string.Empty;
         }
-
-
-
 
         #endregion
 
