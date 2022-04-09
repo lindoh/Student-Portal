@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student_Portal"
         mc:Ignorable="d"
-        Title="Login" Height="544" Width="285" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="10" WindowStyle="None" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="544" Width="285" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="10" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
     
     
     <StackPanel>
@@ -15,7 +15,7 @@
         <Label x:Name="PasswordLbl" Content="Password" Margin="28,0, 100, 0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
         <PasswordBox x:Name="PasswordTxt" Margin="28,0, 28, 5" Padding="2" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" FontWeight="Normal"/>
         <CheckBox x:Name="ShowPasswordCheckBox" Content="Show Password" Margin="142, 0, 10, 10" Padding="2,2,0,2"  FontFamily="Nirmula UI" FontSize="10" FontStyle="Normal" Foreground="#FFA4A5A9" Width="95"/>
-        <Button Name="LoginBtn" Content="LOGIN" Margin="28, 10, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="#FF7456A9" Foreground="White" BorderBrush="White" Cursor="Hand"/>
+        <Button Name="LoginBtn" Content="LOGIN" Margin="28, 10, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="#FF7456A9" Foreground="White" BorderBrush="White" Cursor="Hand" Click="LoginBtn_Click"/>
         <Button Name="ClearBtn" Content="CLEAR" Margin="28, 5, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="White" Foreground="#FF7456A9" BorderBrush="#FF7456A9" Cursor="Hand"/>
     </StackPanel>
 </Window>
