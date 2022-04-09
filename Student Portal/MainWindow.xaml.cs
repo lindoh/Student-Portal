@@ -30,7 +30,7 @@ namespace Student_Portal
         }
 
         //Create OleDb objects for database connection, commands, and data adapter.
-        OleDbConnection con = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = db_studentportal");
+        OleDbConnection con = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = db_studentportal.mdb");
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
 
@@ -43,10 +43,9 @@ namespace Student_Portal
             }
 
             //Check if the username and password match an existing user's details
-
             try 
             {
-                con.Open();     //Open connection to a data source
+                con.Open();     //Open connection to the database
                 string login = "SELECT * FROM tbl_users WHERE username = '" + UsernameTxt.Text + "' and password = '" + PasswordTxt.Password + "'";
                 cmd = new OleDbCommand(login, con);
                 OleDbDataReader dr = cmd.ExecuteReader();
@@ -57,6 +56,12 @@ namespace Student_Portal
                     new HomeScreen().Show();    //Navigate to the Home Screen
                     Hide();                     //Hide this screen
                 }
+                else
+                {
+                    MessageBox.Show("Invalid username or password, please try again", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                con.Close();    //Close connection
             }
             catch(OleDbException)
             {
