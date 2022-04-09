@@ -34,6 +34,15 @@ namespace Student_Portal
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
 
+        #region Private Methods
+        /// <summary>
+        /// Login button click method.
+        /// Checks if text boxes are not empty, 
+        /// connects to the data base and compare submited info. from text boxes to the one in the database
+        /// Finally open the Home screen if there are no errors
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             //Check if text fields are empty
@@ -68,8 +77,36 @@ namespace Student_Portal
                 MessageBox.Show("Couldn't open connection to the data source", "Data Source Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            
-
+            //Clear textboxes
+            clearTextboxes();
         }
+
+        private void ClearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Clear textboxes
+            clearTextboxes();
+        }
+
+        private void CreateAccLbl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            new Register().Show();
+            Hide();
+        }
+
+        #endregion
+
+        #region Supporting Methods
+        private void clearTextboxes()
+        {
+            UsernameTxt.Text  = string.Empty;
+            PasswordTxt.Password = string.Empty;
+        }
+
+
+
+
+        #endregion
+
+       
     }
 }
