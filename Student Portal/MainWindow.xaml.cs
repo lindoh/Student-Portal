@@ -1,22 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.OleDb;
 
 //TO DO:
 //* Add Exceptions to database connection, commands, and everywhere necessary
+//* Update the last commit with a typo
 //
+
 namespace Student_Portal
 {
     /// <summary>
@@ -92,7 +82,7 @@ namespace Student_Portal
             clearTextboxes();
         }
 
-        private void CreateAccLbl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void CreateAccLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             new Register().Show();
             Hide();
@@ -111,8 +101,7 @@ namespace Student_Portal
             PasswordTxt.Password = string.Empty;
         }
 
-        #endregion
 
-       
+        #endregion
     }
 }

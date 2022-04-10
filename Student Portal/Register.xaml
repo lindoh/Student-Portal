@@ -5,20 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student_Portal"
         mc:Ignorable="d"
-         Title="Registration Form" Height="544" Width="285" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="10" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
+         Title="Registration Form" Height="800" Width="880" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="10" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
 
-    <StackPanel>
-        <Label x:Name="lbl1" Margin="28, 58, 28, 10" Content="Get Started" Foreground="#FF7456A9" FontFamily="MS UI Gothic" FontSize="20" />
-        <Label Name="UsernameLbl" Content="Username" Margin="28, 10, 100, 0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <TextBox Name="UsernameTxt" Margin="28,0, 28, 5"  Padding="2" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
-        <Label x:Name="PasswordLbl" Content="Password" Margin="28,0, 100, 0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <PasswordBox x:Name="PasswordTxt" Margin="28,0, 28, 5" Padding="2" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" FontWeight="Normal"/>
-        <Label x:Name="ConPasswordLbl" Content="Confirm Password" Margin="28,0, 100, 0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <PasswordBox x:Name="ConPasswordTxt" Margin="28,0, 28, 5" Padding="2" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" FontWeight="Normal"/>
-        <CheckBox x:Name="ShowPasswordCheckBox" Content="Show Password" Margin="142, 0, 10, 10" Padding="2,2,0,2"  FontFamily="Nirmula UI" FontSize="10" FontStyle="Normal" Foreground="#FFA4A5A9" Width="95"/>
-        <Button Name="RegisterBtn" Content="REGISTER" Margin="28, 10, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="#FF7456A9" Foreground="White" BorderBrush="White" Cursor="Hand" Click="RegisterBtn_Click"/>
-        <Button Name="ClearBtn" Content="CLEAR" Margin="28, 5, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="White" Foreground="#FF7456A9" BorderBrush="#FF7456A9" Cursor="Hand" Click="ClearBtn_Click"/>
-        <Label Content="Already have an account?" Margin="56.7,10,56.7,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <Label Name="BackToLogin" Content="Back to Login" Margin="89.2,0,89.2,5" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" Cursor="Hand" MouseDoubleClick="BackToLogin_MouseDoubleClick"/>
-    </StackPanel>
+    <Grid Margin="20, 0, 20, 5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Register New Student or Lecture"  Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="20"
+                   Foreground="#FF7456A9"></TextBlock>
+        
+        <Label Grid.Row="1" Grid.Column="0" Content="First Name" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="2" Grid.Column="0" x:Name="Fname" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="Last Name" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="2" Grid.Column="2" x:Name="Lname" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Gender" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="4" Grid.Column="0" x:Name="Gender" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+        <Label Grid.Row="3" Grid.Column="2" Content="ID Number" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="4" Grid.Column="2" x:Name="IdNumber" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Nationality" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="6" Grid.Column="0" x:Name="Nationality" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+        <Label Grid.Row="5" Grid.Column="2" Content="Date of Birth" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="6" Grid.Column="2" x:Name="DOB" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+
+        <Label Grid.Row="7" Grid.Column="0" Content="Physical Address" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="8" Grid.ColumnSpan="3" x:Name="Address" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+
+        <Label Grid.Row="9" Grid.Column="0" Content="Phone Number" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="10" Grid.Column="0" x:Name="Number" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+        <Label Grid.Row="9" Grid.Column="2" Content="Date of Registration" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <TextBox Grid.Row="10" Grid.Column="2" x:Name="DateOfReg" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+
+        <Label Grid.Row="11" Grid.Column="0" Content="Discipline" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <ComboBox Grid.Row="12" Grid.Column="0" x:Name="Discipline" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" FontWeight="Normal"/>
+        <Label Grid.Row="11" Grid.Column="2" Content="Course Code" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <ComboBox Grid.Row="12" Grid.Column="2" x:Name="Course" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" FontWeight="Normal"/>
+
+        <Label Grid.Row="13" Grid.Column="3" Content="Generated Username" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <Button Grid.Row="14" Grid.Column="0" Name="GenUsernameBtn" Content="Generate Username" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="White" Foreground="#FF7456A9" BorderBrush="#FF7456A9" Cursor="Hand"/>
+        <TextBox Grid.Row="14" Grid.Column="2" x:Name="GenUsernameTxt" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+        <Label Grid.Row="15" Grid.Column="3" Content="Temporary Password" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+        <Button Grid.Row="16" Grid.Column="0" Name="GenPasswordBtn" Content="Password Username" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="White" Foreground="#FF7456A9" BorderBrush="#FF7456A9" Cursor="Hand"/>
+        <TextBox Grid.Row="16" Grid.Column="2" x:Name="GenPasswordTxt" FontFamily="Nirmula UI" FontSize="14" FontStyle="Normal" Background="#FFE6E7E9" TextWrapping="Wrap" FontWeight="Normal"/>
+
+        <Button Grid.Row="18" Grid.ColumnSpan="3" Margin="100, 0, 100, 10" Name="RegisterBtn" Content="REGISTER" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="#FF7456A9" Foreground="White" BorderBrush="White" Cursor="Hand"/>
+    </Grid>
 </Window>
