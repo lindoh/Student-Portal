@@ -27,127 +27,91 @@ namespace Student_Portal
         }
 
         #endregion
-        /*
-                #region Database Objects
-                //
-                OleDbConnection con = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = db_studentportal.mdb");
-                OleDbCommand cmd = new OleDbCommand();
-                OleDbDataAdapter da = new OleDbDataAdapter();
+      
+        #region Database Objects
+        //
+        OleDbConnection con = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = db_studentportal.mdb");
+        OleDbCommand cmd = new OleDbCommand();
+        OleDbDataAdapter da = new OleDbDataAdapter();
 
-                #endregion
+        #endregion
 
-                #region Private Methods
+        #region Private Methods
 
-                /// <summary>
-                /// Registration button:
-                /// Checks if textboxes are empty, create connection with the database,
-                /// Store the data in the database and execute the command,
-                /// And alert the user after successful account creation
-                /// </summary>
-                /// <param name="sender"></param>
-                /// <param name="e"></param>
-                private void RegisterBtn_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Registration button:
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RegisterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Check if none of the text fields is empty
+            if (Fname.Text == "" || Lname.Text == "" || Gender.Text == "" || IdNumber.Text == "" || Nationality.Text == "" || DOB.Text == ""
+                || Address.Text == "" || Number.Text == "" || DateOfReg.Text == "" || Discipline.Text == "" || CourseName.Text == "")
+            {
+                MessageBox.Show("One or more text fields are empty", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (GenUsernameTxt.Text == "" || GenPasswordTxt.Text == "")
+            {
+                MessageBox.Show("Username and/or Password fields are empty", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                try
                 {
-                    //Check if all textboxes are empty and send appropriate message to the user
-                    if (UsernameTxt.Text == "" && PasswordTxt.Password == "" && ConPasswordTxt.Password == "")
-                    {
-                        MessageBox.Show("Username and password fields are empty", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                    else if (PasswordTxt.Password == ConPasswordTxt.Password)       //Check if passwords match in the textboxes
-                    {
+                    con.Open();      //Open connection to database
+                    string register = "INSERT INTO tbl_students VALUES('" + Fname.Text + "', '" + Lname.Text + "', '" + Gender.Text + "', '" + IdNumber.Text + "', '" + Nationality.Text + "', " +
+                        "'" + DOB.Text + "', '" + Address.Text + "', '" + Number.Text + "', '" + DateOfReg.Text + "', '" + Discipline.Text + "', '" + CourseName.Text + "')";
+                    cmd = new OleDbCommand(register, con);
+                    cmd.ExecuteNonQuery();
 
-                        try
-                        {
-                            //Check if the user doesn't already exist before storing new data
-                            con.Open();         //Open connection to the database
-                            string existingUser = "SELECT * FROM tbl_users WHERE username = '" + UsernameTxt.Text + "' ";
-                            cmd = new OleDbCommand(existingUser, con);
-                            OleDbDataReader dr = cmd.ExecuteReader();       //Read from database table
-
-                            //If the same data exists in the table
-                            if (dr.Read())
-                            {
-                                MessageBox.Show("User already exists", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                                clearTextboxes('u');           //Clear textboxes     
-                            }
-                            else
-                            {
-                                //Store the data in the database table
-                                string register = "INSERT INTO tbl_users VALUES('" + UsernameTxt.Text + "', '" + PasswordTxt.Password + "')";
-                                cmd = new OleDbCommand(register, con);
-                                cmd.ExecuteNonQuery();          //Execute query command
-
-                                //Alert the user after successful account creation
-                                MessageBox.Show("Your account has been successfully created", "Registration Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                            }
-                            con.Close();                    //Close connection
-                        }
-                        catch (OleDbException)
-                        {
-                            MessageBox.Show("Couldn't open connection to the data source", "Data Source Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-
-
-                        //Clear all textboxes
-                        clearTextboxes('u');
-                    }
-                    else
-                    {
-                        MessageBox.Show("Passwords do not match, Please re-enter", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                        //Clear password textboxes
-                        clearTextboxes('p');
-                    }
+                    
+                    con.Close();
                 }
+                catch(OleDbException)
+                {
+                    MessageBox.Show("Couldn't open connection to the database", "Database Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
 
-                /// <summary>
+        /// <summary>
                 /// Clears all textboxes
-                /// </summary>
-                /// <param name="sender"></param>
-                /// <param name="e"></param>
-                private void ClearBtn_Click(object sender, RoutedEventArgs e)
-                {
-                    //Clear textboxes
-                    clearTextboxes('u');
-                }
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //Clear textboxes
+            clearTextboxes('u');
+        }
 
-                /// <summary>
-                /// Navigate to the Login Screen
-                /// </summary>
-                /// <param name="sender"></param>
-                /// <param name="e"></param>
-                private void BackToLogin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-                {
-                    new MainWindow().Show();
-                    Hide();
-                }
+    
 
-                #endregion
+        #endregion
 
-                #region Supporting Methods
+        #region Supporting Methods
 
-                /// <summary>
-                /// Clears all textboxes
-                /// If argument character is 'u' clear all textboxes including Username
-                /// Else clear Password textboxes only --> c = 'p'
-                /// </summary>
-                private void clearTextboxes(char c)
-                {
-                    if (c == 'u')
-                    {
-                        UsernameTxt.Text = string.Empty;
-                        PasswordTxt.Password = string.Empty;
-                        ConPasswordTxt.Password = string.Empty;
-                    }
-                    else if (c == 'p')
-                    {
-                        PasswordTxt.Password = string.Empty;
-                        ConPasswordTxt.Password = string.Empty;
-                    }
+        /// <summary>
+        /// Clears all textboxes
+        /// If argument character is 'u' clear all textboxes including Username
+        /// Else clear Password textboxes only --> c = 'p'
+        /// </summary>
+        private void clearTextboxes(char c)
+        {
+        if (c == 'u')
+        {
+           
+        }
+        else if (c == 'p')
+        {
+            
+        }
 
-                }
+        }
 
 
-                #endregion
-        */
+#endregion
     }
 }

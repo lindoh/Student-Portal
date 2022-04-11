@@ -14,15 +14,21 @@ namespace Student_Portal
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Default Constructor
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        #endregion
+
+        #region Database Objects
         //Create OleDb objects for database connection, commands, and data adapter.
         OleDbConnection con = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = db_studentportal.mdb");
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
+
+        #endregion
 
         #region Private Methods
         /// <summary>
@@ -52,8 +58,7 @@ namespace Student_Portal
                 //If reading from data source is successful, open the next window (home HomeScreen)
                 if (dr.Read())
                 {
-                    new HomeScreen().Show();    //Navigate to the Home Screen
-                    Hide();                     //Hide this screen
+                    SelectUser(UsernameTxt.Text);
                 }
                 else
                 {
@@ -64,7 +69,7 @@ namespace Student_Portal
             }
             catch(OleDbException)
             {
-                MessageBox.Show("Couldn't open connection to the data source", "Data Source Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Couldn't open connection to the database", "Database Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             //Clear textboxes
@@ -101,6 +106,30 @@ namespace Student_Portal
             PasswordTxt.Password = string.Empty;
         }
 
+        /// <summary>
+        /// The SelectUser methods selects a user based on their username
+        /// adm == Administrator, 222 = student, other username = lecture
+        /// </summary>
+        /// <param name="username"></param>
+        private void SelectUser(string username)
+        {
+            //Select the first 3 characters and use them as a user id
+            string id = username.Substring(0, 3);
+
+            switch(id)
+            {
+                case "adm":         //For Administrators the username starts with "adm"
+                    new Register().Show();
+                    break;
+                case "222":         //For students the username starts with "222" for year 2022
+                    new HomeScreen().Show();
+                    break;
+                default:            //Else the user could be a lecture
+                    break;
+            }
+
+            Hide();                 //Hide this screen
+        }
 
         #endregion
     }
