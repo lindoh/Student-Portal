@@ -87,9 +87,14 @@ namespace Student_Portal
             clearTextboxes();
         }
 
-        private void CreateAccLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void ResetPasswordLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            new Register().Show();
+
+        }
+
+        private void RegisterLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            new AdminRegister().Show();
             Hide();
         }
 
@@ -132,5 +137,7 @@ namespace Student_Portal
         }
 
         #endregion
+
+     
     }
 }

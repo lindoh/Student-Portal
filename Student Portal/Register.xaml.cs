@@ -47,8 +47,8 @@ namespace Student_Portal
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
             //Check if none of the text fields is empty
-            if (Fname.Text == "" || Lname.Text == "" || Gender.Text == "" || IdNumber.Text == "" || Nationality.Text == "" || DOB.Text == ""
-                || Address.Text == "" || Number.Text == "" || DateOfReg.Text == "" || Discipline.Text == "" || CourseName.Text == "")
+            if (FnameTxt.Text == "" || LnameTxt.Text == "" || GenderTxt.Text == "" || IdNumberTxt.Text == "" || NationalityTxt.Text == "" || DOBTxt.Text == ""
+                || AddressTxt.Text == "" || NumberTxt.Text == "" || DateOfRegTxt.Text == "" || Stud_Lec_CBox.Text == "" || CourseNameCBox.Text == "")
             {
                 MessageBox.Show("One or more text fields are empty", "Registration Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -61,8 +61,8 @@ namespace Student_Portal
                 try
                 {
                     con.Open();      //Open connection to database
-                    string register = "INSERT INTO tbl_students VALUES('" + Fname.Text + "', '" + Lname.Text + "', '" + Gender.Text + "', '" + IdNumber.Text + "', '" + Nationality.Text + "', " +
-                        "'" + DOB.Text + "', '" + Address.Text + "', '" + Number.Text + "', '" + DateOfReg.Text + "', '" + Discipline.Text + "', '" + CourseName.Text + "')";
+                    string register = "INSERT INTO tbl_students VALUES('" + FnameTxt.Text + "', '" + LnameTxt.Text + "', '" + GenderTxt.Text + "', '" + IdNumberTxt.Text + "', '" + NationalityTxt.Text + "', " +
+                        "'" + DOBTxt.Text + "', '" + AddressTxt.Text + "', '" + NumberTxt.Text + "', '" + DateOfRegTxt.Text + "', '" + Stud_Lec_CBox.Text + "', '" + CourseNameCBox.Text + "')";
                     cmd = new OleDbCommand(register, con);
                     cmd.ExecuteNonQuery();
 
