@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.OleDb;
 
 //TO DO:
@@ -24,15 +12,21 @@ namespace Student_Portal
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Default Constructor
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        #endregion
+
+        #region Database Objects
         //Create OleDb objects for database connection, commands, and data adapter.
         OleDbConnection con = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = db_studentportal.mdb");
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
+
+        #endregion
 
         #region Private Methods
         /// <summary>
@@ -50,31 +44,33 @@ namespace Student_Portal
             {
                 MessageBox.Show("Username and Password fields are empty", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            //Check if the username and password match an existing user's details
-            try 
-            {
-                con.Open();     //Open connection to the database
-                string login = "SELECT * FROM tbl_users WHERE username = '" + UsernameTxt.Text + "' and password = '" + PasswordTxt.Password + "'";
-                cmd = new OleDbCommand(login, con);
-                OleDbDataReader dr = cmd.ExecuteReader();
-
-                //If reading from data source is successful, open the next window (home HomeScreen)
-                if (dr.Read())
+            else
+            { 
+                //Check if the username and password match an existing user's details
+                try 
                 {
-                    new HomeScreen().Show();    //Navigate to the Home Screen
-                    Hide();                     //Hide this screen
-                }
-                else
-                {
-                    MessageBox.Show("Invalid username or password, please try again", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                    con.Open();     //Open connection to the database
+                    string login = "SELECT * FROM tbl_users WHERE username = '" + UsernameTxt.Text + "' and password = '" + PasswordTxt.Password + "'";
+                    cmd = new OleDbCommand(login, con);
+                    OleDbDataReader dr = cmd.ExecuteReader();
 
-                con.Close();    //Close connection
-            }
-            catch(OleDbException)
-            {
-                MessageBox.Show("Couldn't open connection to the data source", "Data Source Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //If reading from data source is successful, open the next window (home HomeScreen)
+                    if (dr.Read())
+                    {
+                        new HomeScreen().Show();    //Navigate to the Home Screen
+                        Hide();                     //Hide this screen
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password, please try again", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                    con.Close();    //Close connection
+                }
+                catch(OleDbException)
+                {
+                    MessageBox.Show("Couldn't open connection to the data source", "Data Source Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
             //Clear textboxes
@@ -92,8 +88,9 @@ namespace Student_Portal
             clearTextboxes();
         }
 
-        private void CreateAccLbl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void CreateAccLbl_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //Navigate to the Admin registration screen
             new Register().Show();
             Hide();
         }
@@ -111,8 +108,8 @@ namespace Student_Portal
             PasswordTxt.Password = string.Empty;
         }
 
+
         #endregion
 
-       
     }
 }

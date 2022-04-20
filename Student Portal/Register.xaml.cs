@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Data.OleDb;
 
 namespace Student_Portal
@@ -107,8 +96,9 @@ namespace Student_Portal
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BackToLogin_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void BackToLogin_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //Navigate to the Login Screen
             new MainWindow().Show();
             Hide();
         }
@@ -127,8 +117,9 @@ namespace Student_Portal
             ConPasswordTxt.Password = string.Empty;
         }
 
+
         #endregion
 
-       
+    
     }
 }

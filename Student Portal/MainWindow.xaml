@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student_Portal"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         Title="Login" Height="544" Width="285" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="10" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
     
     
@@ -18,7 +19,7 @@
         <Button Name="LoginBtn" Content="LOGIN" Margin="28, 10, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="#FF7456A9" Foreground="White" BorderBrush="White" Cursor="Hand" Click="LoginBtn_Click"/>
         <Button Name="ClearBtn" Content="CLEAR" Margin="28, 5, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="White" Foreground="#FF7456A9" BorderBrush="#FF7456A9" Cursor="Hand" Click="ClearBtn_Click"/>
         <Label Content="Don't have an account yet?" Margin="49.2,10,49.2,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <Label Name="CreateAccLbl" Content="Create New Account" Margin="70.2,0,70.2,5" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" Cursor="Hand" MouseDoubleClick="CreateAccLbl_MouseDoubleClick"/>
+        <Label Name="CreateAccLbl" Content="Create New Account" Margin="70.2,0,70.2,5" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="CreateAccLbl_MouseLeftButtonDown"/>
         <Label Content="New Student/Lecture?" Margin="65, 5, 65, 0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
         <Label Content="Ask Admin" Margin="100,0,100,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold"/>
     </StackPanel>

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student_Portal"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
          Title="Registration Form" Height="544" Width="285" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="10" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
 
     <StackPanel>
@@ -19,6 +20,6 @@
         <Button Name="RegisterBtn" Content="REGISTER" Margin="28, 10, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="#FF7456A9" Foreground="White" BorderBrush="White" Cursor="Hand" Click="RegisterBtn_Click"/>
         <Button Name="ClearBtn" Content="CLEAR" Margin="28, 5, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="White" Foreground="#FF7456A9" BorderBrush="#FF7456A9" Cursor="Hand" Click="ClearBtn_Click"/>
         <Label Content="Already have an account?" Margin="56.7,10,56.7,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <Label Name="BackToLogin" Content="Back to Login" Margin="89.2,0,89.2,5" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" Cursor="Hand" MouseDoubleClick="BackToLogin_MouseDoubleClick"/>
+        <Label Name="BackToLogin" Content="Back to Login" Margin="89.2,0,89.2,5" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="BackToLogin_MouseLeftButtonDown"/>
     </StackPanel>
 </Window>
