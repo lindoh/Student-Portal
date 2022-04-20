@@ -23,5 +23,15 @@ namespace Student_Portal
         {
             InitializeComponent();
         }
+
+        private void HomeBtn_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void UpdateAdminBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

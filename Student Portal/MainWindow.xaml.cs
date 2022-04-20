@@ -42,38 +42,40 @@ namespace Student_Portal
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             //Check if text fields are empty
-            if(UsernameTxt.Text == "" && PasswordTxt.Password == "")
+            if (UsernameTxt.Text == "" && PasswordTxt.Password == "")
             {
                 MessageBox.Show("Username and Password fields are empty", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            //Check if the username and password match an existing user's details
-            try 
+            else
             {
-                con.Open();     //Open connection to the database
-                string login = "SELECT * FROM tbl_users WHERE username = '" + UsernameTxt.Text + "' and password = '" + PasswordTxt.Password + "'";
-                cmd = new OleDbCommand(login, con);
-                OleDbDataReader dr = cmd.ExecuteReader();
-
-                //If reading from data source is successful, open the next window (home HomeScreen)
-                if (dr.Read())
+                //Check if the username and password match an existing user's details
+                try
                 {
-                    SelectUser(UsernameTxt.Text);
+                    con.Open();     //Open connection to the database
+                    string login = "SELECT * FROM tbl_users WHERE username = '" + UsernameTxt.Text + "' and password = '" + PasswordTxt.Password + "'";
+                    cmd = new OleDbCommand(login, con);
+                    OleDbDataReader dr = cmd.ExecuteReader();
+
+                    //If reading from data source is successful, open the next window (home HomeScreen)
+                    if (dr.Read())
+                    {
+                        SelectUser(UsernameTxt.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid username or password, please try again", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+                    con.Close();    //Close connection
                 }
-                else
+                catch (OleDbException)
                 {
-                    MessageBox.Show("Invalid username or password, please try again", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Couldn't open connection to the database", "Database Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                con.Close();    //Close connection
+                //Clear textboxes
+                clearTextboxes();
             }
-            catch(OleDbException)
-            {
-                MessageBox.Show("Couldn't open connection to the database", "Database Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-            //Clear textboxes
-            clearTextboxes();
         }
 
         /// <summary>
@@ -124,7 +126,7 @@ namespace Student_Portal
             switch(id)
             {
                 case "adm":         //For Administrators the username starts with "adm"
-                    new Register().Show();
+                    new HomeScreen().Show();
                     break;
                 case "222":         //For students the username starts with "222" for year 2022
                     new HomeScreen().Show();
