@@ -28,6 +28,17 @@ namespace Student_Portal
         private void UpdateAdminBtn_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new AdminAccontViewModel();
+            SelectedItemLbl.Content = "Admin Personal Details";
+        }
+
+        private void CreateUserBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CreateUserAccountViewModel();
+        }
+
+        private void ContentControl_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
         }
     }
 }

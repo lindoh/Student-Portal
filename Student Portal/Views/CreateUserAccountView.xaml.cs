@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,24 +11,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.OleDb;
 
-namespace Student_Portal
+namespace Student_Portal.Views
 {
     /// <summary>
-    /// Interaction logic for Register.xaml
+    /// Interaction logic for CreateUserAccountView.xaml
     /// </summary>
-    public partial class Register : Window
+    public partial class CreateUserAccountView : UserControl
     {
-        #region Default Constructor
-        public Register()
+        public CreateUserAccountView()
         {
             InitializeComponent();
         }
 
-        #endregion
-      
         #region Database Objects
         //
         OleDbConnection con = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = db_studentportal.mdb");
@@ -66,10 +64,10 @@ namespace Student_Portal
                     cmd = new OleDbCommand(register, con);
                     cmd.ExecuteNonQuery();
 
-                    
+
                     con.Close();
                 }
-                catch(OleDbException)
+                catch (OleDbException)
                 {
                     MessageBox.Show("Couldn't open connection to the database", "Database Connection Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -77,7 +75,7 @@ namespace Student_Portal
         }
 
         /// <summary>
-                /// Clears all textboxes
+        /// Clears all textboxes
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -86,8 +84,6 @@ namespace Student_Portal
             //Clear textboxes
             clearTextboxes('u');
         }
-
-    
 
         #endregion
 
@@ -100,18 +96,17 @@ namespace Student_Portal
         /// </summary>
         private void clearTextboxes(char c)
         {
-        if (c == 'u')
-        {
-           
-        }
-        else if (c == 'p')
-        {
-            
-        }
+            if (c == 'u')
+            {
+
+            }
+            else if (c == 'p')
+            {
+
+            }
 
         }
 
-
-#endregion
+        #endregion
     }
 }

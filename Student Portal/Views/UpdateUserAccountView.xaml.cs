@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Student_Portal
+namespace Student_Portal.Views
 {
     /// <summary>
-    /// Interaction logic for Settings.xaml
+    /// Interaction logic for UpdateUserAccountView.xaml
     /// </summary>
-    public partial class Settings : UserControl
+    public partial class UpdateUserAccountView : UserControl
     {
-        public Settings()
+        public UpdateUserAccountView()
         {
             InitializeComponent();
         }
