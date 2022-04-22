@@ -10,20 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Student_Portal
 {
     /// <summary>
-    /// Interaction logic for AdminDetails.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class AdminDetails : Window
+    public partial class Settings : UserControl
     {
-        public AdminDetails()
+        public Settings()
         {
             InitializeComponent();
         }
-
-       
     }
 }

@@ -4,8 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Student_Portal"
+        xmlns:viewmodels="clr-namespace:Student_Portal.ViewModels"
+        xmlns:views="clr-namespace:Student_Portal.Views"
         mc:Ignorable="d"
-        Title="Admin Panel" Height="450" Width="800" MinWidth="800" MinHeight="450">
+        Title="Admin Panel" Height="470" Width="800" MinWidth="800" MinHeight="450">
+
+    <Window.Resources>
+        <DataTemplate x:Name="AdminAccountViewTemplate" DataType="{x:Type viewmodels:AdminAccontViewModel}">
+            <views:AdminAccountView DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
+    
     <DockPanel>
         <StackPanel Width="250" Background="#2a2b2b" >
 
@@ -14,14 +23,17 @@
             <Button Name="UpdateUserBtn"  Content="Update User Account" HorizontalContentAlignment="Left" Padding="10,10,0,10" FontFamily="Nirmula UI" FontSize="18" FontWeight="Normal" Foreground="White" Background="Transparent" BorderBrush="#1b1c1c" Cursor="Hand"/>
             <Button Name="DeleteUserBtn"  Content="Delete User Account" HorizontalContentAlignment="Left" Padding="10,10,0,10" FontFamily="Nirmula UI" FontSize="18" FontWeight="Normal" Foreground="White" Background="Transparent" BorderBrush="#1b1c1c" Cursor="Hand"/>
             <Button Name="UpdateAdminBtn"  Content="Update Admin Account" HorizontalContentAlignment="Left" Padding="10,10,0,10" FontFamily="Nirmula UI" FontSize="18" FontWeight="Normal" Foreground="White" Background="Transparent" BorderBrush="#1b1c1c" Cursor="Hand" Click="UpdateAdminBtn_Click"/>
+            <Button Name="SettingsBtn"  Content="Settings" HorizontalContentAlignment="Left" Padding="10,10,0,10" FontFamily="Nirmula UI" FontSize="18" FontWeight="Normal" Foreground="White" Background="Transparent" BorderBrush="#1b1c1c" Cursor="Hand"/>
         </StackPanel>
-        <StackPanel Name="SelectedItemPanel"  Width="540">
-            <DockPanel Height="44" Width="540" Background="#c2d1c6">
+        <StackPanel Name="SelectedItemPanel">
+            <DockPanel Background="#c2d1c6" Height="44">
                 <Label Name="SelectedItemLbl" Content="Home"  Margin="0, 10, 270, 10"/>
                 <Label Name="ProfileLbl" Content="Lindokuhle Gamede" Margin="5, 10, 0, 10"/>
                 <Image Source="D:\Engineering work\C# Repository\Student Portal\Student Portal\bin\Debug\ProfilePicIcon.png"/>
             </DockPanel>
-            
+            <ContentControl Content="{Binding}"/>
         </StackPanel>
     </DockPanel>
+
+    
 </Window>
