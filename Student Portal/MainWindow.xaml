@@ -18,8 +18,8 @@
         <Button Name="LoginBtn" Content="LOGIN" Margin="28, 10, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="#FF7456A9" Foreground="White" BorderBrush="White" Cursor="Hand" Click="LoginBtn_Click"/>
         <Button Name="ClearBtn" Content="CLEAR" Margin="28, 5, 28, 10" Padding="10" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Background="White" Foreground="#FF7456A9" BorderBrush="#FF7456A9" Cursor="Hand" Click="ClearBtn_Click"/>
         <Label Content="Forgot Password?" Margin="82.7,5,82.7,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <Label Name="ResetPasswordLbl"  Content="Reset Password" Margin="85.2,0,85.2,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" MouseLeftButtonDown="ResetPasswordLbl_MouseLeftButtonDown"/>
+        <Label Name="ResetPasswordLbl"  Content="Reset Password" Margin="85.2,0,85.2,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" MouseLeftButtonDown="ResetPasswordLbl_MouseLeftButtonDown" Cursor="Hand"/>
         <Label Content="New Administrator?" Margin="69.7,5,69.7,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FFA4A5A9" FontWeight="Bold"/>
-        <Label Name="RegisterLbl" Content="Register Your New Account" Margin="53.2,0,53.2,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" MouseLeftButtonDown="RegisterLbl_MouseLeftButtonDown"/>
+        <Label Name="RegisterLbl" Content="Register Your New Account" Margin="53.2,0,53.2,0" FontFamily="Nirmula UI" FontSize="12" FontStyle="Normal" Foreground="#FF7456A9" FontWeight="Bold" MouseLeftButtonDown="RegisterLbl_MouseLeftButtonDown" Cursor="Hand"/>
     </StackPanel>
 </Window>
