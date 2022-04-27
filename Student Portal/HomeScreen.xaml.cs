@@ -23,6 +23,7 @@ namespace Student_Portal
         public HomeScreen()
         {
             InitializeComponent();
+            DataContext = new HomeViewModel();
         }
 
         private void HomeBtn_Click(object sender, RoutedEventArgs e)
